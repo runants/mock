@@ -1,0 +1,33 @@
+<assembly>
+	<id>daemon-linux</id>
+	<formats>
+		<format>zip</format>
+	</formats>
+	<includeBaseDirectory>false</includeBaseDirectory>
+	<dependencySets>
+		<dependencySet>
+			<useProjectArtifact>false</useProjectArtifact>
+			<outputDirectory>\lib</outputDirectory>
+		</dependencySet>
+	</dependencySets>
+	<fileSets>
+		<fileSet>
+			<directory>src/main/resources</directory>
+			<outputDirectory>\</outputDirectory>
+			<includes>
+				<include>application.yml</include>
+				<include>start.bat</include>
+				<include>start.sh</include>
+				<include>stop.sh</include>
+				<include>test.sh</include>
+			</includes>
+		</fileSet>
+		<fileSet>
+			<directory>${project.build.directory}</directory>
+			<includes>
+				<include>${project.build.finalName}.jar</include>
+			</includes>
+			<outputDirectory>\</outputDirectory>
+		</fileSet>
+	</fileSets>
+</assembly>
