@@ -22,7 +22,7 @@ public class MockApplication {
 
 
     /**
-     * csv 文件格式：
+     * json 文件格式：
      * 1. 分隔符为 ";"
      * 2. "#" 开始的行被认为是注释，忽略执行，并打印在控制台
      *
@@ -43,13 +43,12 @@ public class MockApplication {
                     String path = p[1].trim();
                     String value = p.length > 2 ? p[2].trim() : null;
                     if (value != null && value.toUpperCase().startsWith("#FILE#")) {
-                        if (value.toLowerCase().endsWith(".yml")) {
+                        if (value.toLowerCase().endsWith(".json")) {
                             value = value.substring(7).trim();
                         } else {
                             value = readFile(value.substring(7).trim());
                         }
                     }
-//                    zkproc(command, path, value);
                 }
             }
         } finally {
